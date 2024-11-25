@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "curl/curl": "^1.4",
+        "curl/curl": "^2.5",
         "ext-json": "*"
     },
     "autoload": {
