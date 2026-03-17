@@ -87,6 +87,24 @@ class AppsCommand extends BaseCommand
             )
         );
     }
+
+    /**
+     * Update only the php runtime of the app with the specified ID.
+     *
+     * @param string $id
+     * @param string $runtime
+     * @return App
+     */
+    public function updateRuntime($id, $runtime)
+    {
+        return $this->api()->post(
+            $this,
+            $id,
+            array(
+                'runtime' => (string) $runtime,
+            )
+        );
+    }
     
     /**
      * Deletes the app with the specified ID.

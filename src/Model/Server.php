@@ -45,6 +45,11 @@ class Server extends BaseModel
     protected $lastConnected;
     
     /**
+     * @var array
+     */
+    protected $availableRuntimes;
+    
+    /**
      * Constructs the object upon instantiation.
      */
     public function __construct()
@@ -234,6 +239,30 @@ class Server extends BaseModel
     {
         return \DateTime::createFromFormat('U', $this->lastConnected);
     }
+
+    
+    /**
+     * Stores the available runtimes on the server
+     *
+     * @param array $availableRuntimes
+     * @return Server
+     */
+    public function setAvailableRuntimes(array $availableRuntimes)
+    {
+        $this->availableRuntimes = $availableRuntimes;
+        
+        return $this;
+    }
+
+    /**
+     * The available php runtimes on the server as an array
+     *
+     * @return array
+     */
+    public function getAvailableRuntimes()
+    {
+        return $this->availableRuntimes;
+    }
     
     /**
      * Saves changes made to the receiver via the API.
@@ -293,6 +322,7 @@ class Server extends BaseModel
         $this->setLastAddress($data['lastaddress']);
         $this->setDateCreated($data['datecreated']);
         $this->setLastConnected($data['lastconn']);
+        $this->setAvailableRuntimes($data['available_runtimes']);
         
         if (isset($data['apikey'])) {
             $this->setAPIKey($data['apikey']);

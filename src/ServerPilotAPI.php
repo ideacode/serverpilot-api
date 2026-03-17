@@ -472,7 +472,7 @@ class ServerPilotAPI
         // Handle JSON Data:
         
         if ($json = $this->json()) {
-            
+
             // Define Result:
             
             if ($boolean) {
